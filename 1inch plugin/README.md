@@ -20,7 +20,7 @@ The following functions are available:
 ```js
 async function getSupportedTokens() {
   const tokens = await Moralis.Plugins.oneInch.getSupportedTokens({
-    chain: 'bsc',
+    chain: 'bsc', // The blockchain you want to use (eth/bsc/polygon)
   });
   console.log(tokens);
 }
@@ -37,7 +37,7 @@ async function getSupportedTokens() {
 async function getQuote() {
 
   const quote = await Moralis.Plugins.oneInch.quote({
-    chain: 'bsc',
+    chain: 'bsc', // The blockchain you want to use (eth/bsc/polygon)
     fromTokenAddress: '0x0da6ed8b13214ff28e9ca979dd37439e8a88f6c4', // The token you want to swap
     toTokenAddress: '0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4', // The token you want to receive
     amount: 1000,
