@@ -19,9 +19,8 @@ The following functions are available:
 
 ```js
 async function getSupportedTokens() {
-  const chain = 'bsc';
   const tokens = await Moralis.Plugins.oneInch.getSupportedTokens({
-    chain: chain,
+    chain: 'bsc',
   });
   console.log(tokens);
 }
@@ -36,16 +35,12 @@ async function getSupportedTokens() {
 
 ```js
 async function getQuote() {
-  const chain = 'bsc';
-  const fromTokenAddress = '0x0da6ed8b13214ff28e9ca979dd37439e8a88f6c4'; // The token you want to swap
-  const toTokenAddress = '0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4'; // The token you want to receive
-  const tokenAmount = 1000;
 
   const quote = await Moralis.Plugins.oneInch.quote({
-    chain: chain,
-    fromTokenAddress: fromTokenAddress,
-    toTokenAddress: toTokenAddress,
-    amount: tokenAmount,
+    chain: 'bsc',
+    fromTokenAddress: '0x0da6ed8b13214ff28e9ca979dd37439e8a88f6c4', // The token you want to swap
+    toTokenAddress: '0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4', // The token you want to receive
+    amount: 1000,
   });
   console.log(quote);
 }
@@ -60,16 +55,12 @@ async function getQuote() {
 
 ```js
 async function hasAllowance() {
-  const chain = 'bsc'; // The blockchain you want to use (eth/bsc/polygon)
-  const fromTokenAddress = '0x0da6ed8b13214ff28e9ca979dd37439e8a88f6c4'; // The token you want to swap
-  const user = '0x6217e65d864d77DEcbFF0CFeFA13A93f7C1dD064'; // Your wallet address
-  const tokenAmount = 1000;
 
   const allowance = await Moralis.Plugins.oneInch.hasAllowance({
-    chain: chain,
-    fromTokenAddress: fromTokenAddress,
-    fromAddress: user,
-    amount: tokenAmount,
+    chain: 'bsc', // The blockchain you want to use (eth/bsc/polygon)
+    fromTokenAddress: '0x0da6ed8b13214ff28e9ca979dd37439e8a88f6c4', // The token you want to swap
+    fromAddress: '0x6217e65d864d77DEcbFF0CFeFA13A93f7C1dD064', // Your wallet address
+    amount: 1000,
   });
   console.log(`The user has enough allowance: ${allowance}`);
 }
@@ -83,15 +74,13 @@ async function hasAllowance() {
 
 ```js
 async function approve() {
-  const chain = 'bsc'; // The blockchain you want to use (eth/bsc/polygon)
-  const fromTokenAddress = '0x0da6ed8b13214ff28e9ca979dd37439e8a88f6c4'; // The token you want to swap
-  const user = '0x6217e65d864d77DEcbFF0CFeFA13A93f7C1dD064'; // Your wallet address
 
   await Moralis.Plugins.oneInch.approve({
-    chain: chain,
-    tokenAddress: fromTokenAddress,
-    fromAddress: user,
+    chain: 'bsc', // The blockchain you want to use (eth/bsc/polygon)
+    tokenAddress: '0x0da6ed8b13214ff28e9ca979dd37439e8a88f6c4', // The token you want to swap
+    fromAddress: '0x6217e65d864d77DEcbFF0CFeFA13A93f7C1dD064', // Your wallet address
   });
+  
 }
 ```
 
@@ -106,20 +95,14 @@ async function approve() {
 
 ```js
 async function swap() {
-  const chain = 'bsc'; // The blockchain you want to use (eth/bsc/polygon)
-  const fromTokenAddress = '0x0da6ed8b13214ff28e9ca979dd37439e8a88f6c4'; // The token you want to swap
-  const toTokenAddress = '0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4'; // The token you want to receive
-  const user = '0x6217e65d864d77DEcbFF0CFeFA13A93f7C1dD064'; // Your wallet address
-  const tokenAmount = 1000;
-  const splippage = 1;
 
   const receipt = await Moralis.Plugins.oneInch.swap({
-    chain: chain,
-    fromTokenAddress: fromTokenAddress,
-    toTokenAddress: toTokenAddress,
-    amount: tokenAmount,
-    fromAddress: user,
-    slippage: splippage,
+    chain: 'bsc', // The blockchain you want to use (eth/bsc/polygon)
+    fromTokenAddress: '0x0da6ed8b13214ff28e9ca979dd37439e8a88f6c4', // The token you want to swap
+    toTokenAddress: '0x6fd7c98458a943f469e1cf4ea85b173f5cd342f4',  // The token you want to receive
+    amount: 1000,
+    fromAddress: '0x6217e65d864d77DEcbFF0CFeFA13A93f7C1dD064', // Your wallet address
+    slippage: 1,
   });
   console.log(receipt);
 }
