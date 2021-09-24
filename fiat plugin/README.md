@@ -5,7 +5,7 @@
 
 This version of the plugin only supports web apps. In the future we will add support for Unity and Mobile platforms.
 
-### Usage After installing the plugin you can start using it with the following code:
+### Usage Examples
 
 This code will open up a new browser window and guide the user through the steps to purchase cryptocurrencies.
 
