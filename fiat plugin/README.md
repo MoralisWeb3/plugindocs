@@ -12,7 +12,9 @@ This code will open up a new browser window and guide the user through the steps
 This will not open a new window with fiat onramp - instead you can embed the onramp in an iframe.
 
 `let response = await Moralis.Plugins.fiat.buy({}, {disableTriggers: true});
+
 document.getElementById('iframeid').style.display = 'block';
+
 document.getElementById('iframeid').src = response.result.data;`
 
 This code will preselect the coin and the receiver.
