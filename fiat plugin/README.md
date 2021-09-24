@@ -1,7 +1,9 @@
 
 ## This plugin is for all dapps that want to allow their users to buy crypocurrencies straight from their dapp. This plugin supports most fiat currencies and most cryptocurrencies.
 
-### Supported Platforms This version of the plugin only supports web apps. In the future we will add support for Unity and Mobile platforms.
+### Supported Platforms 
+
+This version of the plugin only supports web apps. In the future we will add support for Unity and Mobile platforms.
 
 ### Usage After installing the plugin you can start using it with the following code:
 
