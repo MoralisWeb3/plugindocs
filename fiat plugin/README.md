@@ -16,4 +16,5 @@ document.getElementById('iframeid').style.display = 'block';
 document.getElementById('iframeid').src = response.result.data;`
 
 This code will preselect the coin and the receiver.
+
 `Moralis.Plugins.fiat.buy({ coin: 'usdc', receiver: '0x...', });`
