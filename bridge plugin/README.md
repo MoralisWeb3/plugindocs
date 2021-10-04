@@ -69,7 +69,7 @@ In order to claim a token on Ethereum is necessary to call the function `claim()
 ```
 
 The example below calls `claim()` every 2 minutes until it gets a positive response, then triggers metamask to claim the tokens.
-User must run the transaction on Ethereum (`Moralis.switchNetwork(_networkId)`) allows you to switch network in Metmask.
+User must run the transaction on Ethereum (`Moralis.switchNetwork(_networkId)`) allows you to switch network in Metamask.
 
 ```js
 // This function triggers a Metamask transaction
