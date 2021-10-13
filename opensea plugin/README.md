@@ -127,7 +127,7 @@ You can post a sell order as follow:
 
 ```js
 await Moralis.Plugins.opensea.postOrder({
-  message: result._payload.data.hash,
+  message: result.payload.data.hash,
   signature: result.response,
   orderSide: 1, // Sell
 });
@@ -176,7 +176,7 @@ async function signSellOrder() {
   });
 
   const isPosted = await Moralis.Plugins.opensea.postOrder({
-    message: result._payload.data.hash,
+    message: result.payload.data.hash,
     signature: result.response,
     orderSide: 1,
   });
@@ -217,7 +217,7 @@ You can post a buy order as follow:
 
 ```js
 await Moralis.Plugins.opensea.postOrder({
-  message: result._payload.sign.data.hash,
+  message: result.payload.sign.data.hash,
   signature: result.response,
   orderSide: 0,
 });
@@ -236,7 +236,7 @@ async function signBuyOrder() {
     tokenType: 'ERC1155',
   });
   const isPosted = await Moralis.Plugins.opensea.postOrder({
-    message: result._payload.sign.data.hash,
+    message: result.payload.sign.data.hash,
     signature: result.response,
     orderSide: 0,
   });
