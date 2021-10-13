@@ -243,3 +243,16 @@ async function signBuyOrder() {
   if (isPosted) alert('The buy order has been posted!');
 }
 ```
+
+### Fulfill a buy order
+
+A `seller` can fulfill any open buy order.
+Orders on a single asset can be retrieved by using `getOrders()`.
+
+```js
+await Moralis.Plugins.opensea.fulfillOrder({
+  network: 'testnet',
+  userAddress: '0x730fe9Fa053BB19841D1C2410f5f871F39c8C475', //seller in this case
+  order: Order,
+});
+```
