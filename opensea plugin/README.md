@@ -50,7 +50,7 @@ await Moralis.Plugins.opensea.getOrders({
 
 # Sellers
 
-To sell an asset, call `sellNft`. <br>
+To sell an asset, call `createSellOrder`. <br>
 You can do a fixed-price listing, where `startAmount` is equal to `endAmount`, or a declining Dutch auction, where `endAmount` is lower and the price declines until `expirationTime` is hit.
 
 ```js
@@ -58,7 +58,7 @@ You can do a fixed-price listing, where `startAmount` is equal to `endAmount`, o
 // Note that we convert from the JavaScript timestamp (milliseconds):
 const expirationTime = Math.round(Date.now() / 1000 + 60 * 60 * 24);
 
-await Moralis.Plugins.opensea.sellNft({
+await Moralis.Plugins.opensea.createSellOrder({
   network: 'testnet',
   tokenAddress: '0xdbe8143c3996c87ecd639ebba5d13b84f56855c2',
   tokenId: '0',
