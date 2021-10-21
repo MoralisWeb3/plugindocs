@@ -89,8 +89,8 @@ await Moralis.Plugins.opensea.createBuyOrder({
 
 # Fulfill orders
 
-To buy an item , you need to fulfill a sell order. <br>
-To sell an item, you need to fulfill a buy order. <br>
+To buy an item you need to fulfill a sell order. <br>
+To sell an item you need to fulfill a buy order. <br>
 
 You can fetch orders for a given token by using the `getOrder` endpoint described above, then use it as parameter in `fulfillOrder`.
 
