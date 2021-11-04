@@ -26,7 +26,7 @@ Import the Moralis SDK in your project.
 # Lazy mint
 
 You can lazy mint a token by calling the `lazyMint` endpoint.<br>
-This endpoint returns an object that contains the `tokenId` of the lazy minted token. <br>
+This endpoint returns an object that contains the `tokenId` and `tokenAddress` of the lazy minted token. <br>
 
 ```js
 await Moralis.Plugins.rarible.lazyMint({
