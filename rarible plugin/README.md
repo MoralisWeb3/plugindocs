@@ -36,7 +36,7 @@ await Moralis.Plugins.rarible.lazyMint({
   tokenUri: '/ipfs/QmWLsBu6nS4ovaHbGAXprD1qEssJu4r5taQfB74sCG51tp',
   supply: 100,
   royaltiesAmount: 5, // 0.05% royalty. Optional
-}
+})
 ```
 
 You can also lazy mint a token and sell immediately. <br>
@@ -55,7 +55,7 @@ await Moralis.Plugins.rarible.lazyMint({
   listTokenAmount: 3, // Only if lazy listing
   listTokenValue: 10 ** 18, // Only if lazy listing
   listAssetClass: 'ETH', // only if lazy listing  || optional
-}
+})
 ```
 
 # Sell order
