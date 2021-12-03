@@ -25,6 +25,8 @@ The parameter `quoteCurrency` is set to `USD` by default. </br>
 
 ## Endpoints
 
+</br>
+
 ### Get block
 
 Description: Given chain id and block height return the block.
@@ -39,6 +41,8 @@ interface GetBlockDto {
 ```ts
 await Moralis.Plugins.covalent.getBlock(GetBlockDto);
 ```
+
+</br>
 
 ### Get All Contract Metadata
 
@@ -55,6 +59,8 @@ interface GetAllContractMetaDto {
 ```ts
 await Moralis.Plugins.covalent.getAllContractMetadata(GetAllContractMetaDto);
 ```
+
+</br>
 
 ### Get Block Heights
 
@@ -75,6 +81,8 @@ interface GetBlockHeightsDto {
 await Moralis.Plugins.covalent.getBlockHeights(GetBlockHeightsDto);
 ```
 
+</br>
+
 ### Get Chains
 
 Description: Returns a list of all chains.
@@ -87,6 +95,8 @@ interface GetChainsDto {}
 await Moralis.Plugins.covalent.getChains(GetChainsDto);
 ```
 
+</br>
+
 ### Get Chain Statuses
 
 Description: Returns a list of all chain statuses.
@@ -98,6 +108,8 @@ interface GetChainStatusesDto {}
 ```ts
 await Moralis.Plugins.covalent.getChainsStatuses(GetChainStatusesDto);
 ```
+
+</br>
 
 ### Get Changes In Token Holders
 
@@ -119,6 +131,8 @@ interface GetChangesInTokenHoldersDto {
 await Moralis.Plugins.covalent.getChangesInTokenHolerBetweenBlockHeights(GetChangesinTokenHoldersDto);
 ```
 
+</br>
+
 ### Get Erc20 Token Transactions For Address
 
 Description: Given chain id user address and transaction hash return all ERC20 token contract transfers along with their historical prices at the time of their transfer.
@@ -138,6 +152,8 @@ interface GetErc20TokenTransactionsForAddressDto {
 await Moralis.Plugins.covalent.getErc20TokenTransfersForAddress(GetErc20TokenTransactionsForAddressDto);
 ```
 
+</br>
+
 ### Get Historical Portfolio Value Over Time
 
 Description: Given chain id and wallet address return wallet value for the last 30 days at 24 hour interval timestamps.
@@ -153,6 +169,8 @@ interface GetHistoricalPortfolioValueOverTimeDto {
 ```ts
 await Moralis.Plugins.covalent.getHistoricalPortfolioValueOverTime(GetHistoricalPortfolioValueOverTimeDto);
 ```
+
+</br>
 
 ### Get Log Events By Contract Address
 
@@ -172,6 +190,8 @@ interface GetLogEventsByContractAddressDto {
 ```ts
 await Moralis.Plugins.covalent.getLogEventsByContractAddress(GetLogEventsByContractAddressDto);
 ```
+
+</br>
 
 ### Get log events by topic
 
@@ -194,6 +214,8 @@ interface GetLogEventsByTopicDto {
 await Moralis.Plugins.covalent.getTokenHoldersByTopic(GetLogEventsByTopicDto);
 ```
 
+</br>
+
 ### Get NFT Token IDs for contract
 
 Description: Given chain id and contract address, return a list of all token IDs for the NFT contract on the blockchain.
@@ -208,10 +230,10 @@ interface GetNFTTokenIDsForContractDto {
 ```
 
 ```js
-await Moralis.Plugins.covalent.getNftTokenIdForContract(
-  GetNFTTokenIDsForContractDto
-);
+await Moralis.Plugins.covalent.getNftTokenIdForContract(GetNFTTokenIDsForContractDto);
 ```
+
+</br>
 
 ### Get NFT transactions for contract
 
@@ -228,10 +250,11 @@ interface GetNFTTransactionsForContractDto {
 ```
 
 ```js
-await Moralis.Plugins.covalent.getNftTransactionsForContract(
-  GetNFTTransactionsForContractDto
-);
+await Moralis.Plugins.covalent.getNftTransactionsForContract(GetNFTTransactionsForContractDto);
 ```
+
+</br>
+
 
 ### Get NFT external metadata for contract
 
@@ -246,10 +269,11 @@ interface GetNFTExternalMetaForContractDto {
 ```
 
 ```js
-await Moralis.Plugins.covalent.getNftExternalMetadataForContract(
-  GetNFTExternalMetaForContractDto
-);
+await Moralis.Plugins.covalent.getNftExternalMetadataForContract(GetNFTExternalMetaForContractDto);
 ```
+
+</br>
+
 
 ### Get token balances for address
 
@@ -264,10 +288,10 @@ interface GetTokenBalancesForAddressDto {
 ```
 
 ```js
-await Moralis.Plugins.covalent.getTokenBalancesForAddress(
-  GetTokenBalancesForAddressDto
-);
+await Moralis.Plugins.covalent.getTokenBalancesForAddress(GetTokenBalancesForAddressDto);
 ```
+
+</br>
 
 ### Get token holders as of any block height
 
@@ -288,6 +312,8 @@ interface GetBlockTokenHoldersDto {
 await Moralis.Plugins.covalent.getBlockTokenHolders(GetBlockTokenHoldersDto);
 ```
 
+</br>
+
 ### Get transactions
 
 Description: Given chain id and transaction hash return return the transaction data with their decoded event logs.
@@ -302,6 +328,8 @@ interface GetTransactionDto {
 ```js
 await Moralis.Plugins.covalent.getTransaction(GetTransactionDto);
 ```
+
+</br>
 
 ### Get transactions for address
 
@@ -318,7 +346,5 @@ interface GetTransactionsForAddressDto {
 ```
 
 ```js
-await Moralis.Plugins.covalent.getTransactionsForAddress(
-  GetTransactionsForAddressDto
-);
+await Moralis.Plugins.covalent.getTransactionsForAddress(GetTransactionsForAddressDto);
 ```
