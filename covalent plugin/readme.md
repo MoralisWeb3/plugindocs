@@ -6,21 +6,9 @@ This plugin enables interaction with the Covalent API (https://www.covalenthq.co
 
 Grab a free api key here: https://www.covalenthq.com/
 
-## Supported Protocols
-
-- UniSwap
-- SushiSwap
-- PancakeSwap
-- Aave
-- Balancer
-- Compound
-- Curve
-- Balancer
-- Farming Stats
-
 ## Optional parameters
 
-When possible, this plugin supports pagination following the interface below. <br>
+When possible, this plugin supports pagination following the interface below. </br>
 
 ```ts
 interface ApiPagination {
@@ -29,189 +17,334 @@ interface ApiPagination {
 }
 ```
 
-The parameter `pageNumber` is set to `0` by default. <br>
-The parameter `pageSize` is set to `100` by default. <br>
+The parameter `pageNumber` is set to `0` by default. </br>
+The parameter `pageSize` is set to `100` by default. </br>
 
-This plugins also supports `quoteCurrency`. <br>
-The parameter `quoteCurrency` is set to `USD` by default. <br>
+This plugins also supports `quoteCurrency`. </br>
+The parameter `quoteCurrency` is set to `USD` by default. </br>
 
-Last but not least the plugin also supports the `swaps: boolean` parameter when possibile <br>
-You will see this parameter available in endpoints that return exchange liquidity transactions. <br>
-Swaps is set to `false` by default.
+## Endpoints
 
-## Uniswap Endpoints <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Uniswap_Logo.svg/1026px-Uniswap_Logo.svg.png" width="40"/>
+</br>
 
-- getUniswapAssets <br>
-  <b>Description:</b> Returns a paginated list of Uniswap pools sorted by exchange volume.<br>
+### Get block
+
+Description: Given chain id and block height return the block.
 
 ```ts
-await Moralis.Plugins.covalent.getUniswapAssets({
-  tickers: 'BTC',
-});
+interface GetBlockDto {
+  chainId: number;
+  blockHeight: string;
+}
 ```
 
-- getUniswapAddressBalances <br>
-  <b>Description:</b> Gets Uniswap v2 address exchange balances.<br>
-
 ```ts
-await Moralis.Plugins.covalent.getUniswapAddressBalances({
-  address: '0xccf1c3f73b04bfc1874f08197b69fe5edaaba73d',
-});
+await Moralis.Plugins.covalent.getBlock(GetBlockDto);
 ```
 
-- getUniswapAddressLiquidityTransactions <br>
-  <b>Description:</b> Gets Uniswap v2 address exchange liquidity transactions.<br>
+</br>
 
-  `Support swaps: true`
+### Get All Contract Metadata
+
+Description: Given chain id, return a list of all contracts on a blockchain along with their metadata.
 
 ```ts
-await Moralis.Plugins.covalent.getUniswapAddressLiquidityTransactions({
-  address: '0xccf1c3f73b04bfc1874f08197b69fe5edaaba73d',
-});
+interface GetAllContractMetaDto {
+  chainId: number;
+  pageNumber?: number;
+  pageSize?: number;
+}
 ```
 
-## Pancakeswap Endpoints <img src="https://github.com/pancakeswap/pancake-frontend/blob/develop/public/logo.png?raw=true" width="40"/>
-
-- getPancackeAssets <br>
-  <b>Description:</b> Returns a paginated list of Pancake V2 pools sorted by exchange volume. Only pools with swaps in the last 24 hours are included.<br>
-
 ```ts
-await Moralis.Plugins.covalent.getPancackeAssets({
-  tickers: 'BNB',
-  // addresses: '' If addresses (a comma separated list) is present, only return the pools that contain these contracts.
-});
+await Moralis.Plugins.covalent.getAllContractMetadata(GetAllContractMetaDto);
 ```
 
-- getPancackePool <br>
-  <b>Description:</b> Returns detailed pool information for the specified pool address.<br>
+</br>
+
+### Get Block Heights
+
+Description: Given chain id, start date, end date return all the block height(s) of a particular chain within a date range.
 
 ```ts
-await Moralis.Plugins.covalent.getPancackePool({
-  address: '0xcad7019d6d84a3294b0494aef02e73bd0f2572eb',
-});
+interface GetBlockHeightsDto {
+  chainId: number;
+  blockHeight: string;
+  startDate: string;
+  endDate: string;
+  pageNumber?: number;
+  pageSize?: number;
+}
 ```
 
-- getPancackeUserBalance <br>
-  <b>Description:</b> Gets Pancakeswap V2 address exchange balances.<br>
-
 ```ts
-await Moralis.Plugins.covalent.getPancackeAddressBalance({
-  address: '0xE78dC206875373B351EEF2D182025bb9a64d67B3',
-});
+await Moralis.Plugins.covalent.getBlockHeights(GetBlockHeightsDto);
 ```
 
-## Sushiswap Endpoints <img src="https://github.com/sushiswap/sushiswap-interface/blob/canary/public/logo.png?raw=true" width="40"/>
+</br>
 
-In order to query Sushiswap related endpoints, you must provide a chainId parameter. <br>
-The following chain IDs are available: <br>
-['1', '137', '80001', '56', '43114', '43113', '250']
+### Get Chains
 
-- getSushiswapAssets <br>
-  <b>Description:</b> Returns a paginated list of Sushiswap pools sorted by exchange volume.<br>
+Description: Returns a list of all chains.
 
 ```ts
-await Moralis.Plugins.covalent.getSushiswapAssets({
-  chainId: '1',
-  tickers: 'BTC',
-});
+interface GetChainsDto {}
 ```
 
-- getSushiswapAddressBalance <br>
-  <b>Description:</b> Get Sushiswap address exchange balances.<br>
-
 ```ts
-await Moralis.Plugins.covalent.getSushiswapAddressBalance({
-  chainId: '1',
-  address: '0xe55c3e83852429334a986b265d03b879a3d188ac',
-});
+await Moralis.Plugins.covalent.getChains(GetChainsDto);
 ```
 
-- getSushiswapAddressLiquidityTransactions <br>
-  <b>Description:</b> Gets Sushiswap address exchange liquidity transactions.<br>
+</br>
 
-  `Support swaps: true`
+### Get Chain Statuses
+
+Description: Returns a list of all chain statuses.
 
 ```ts
-await Moralis.Plugins.covalent.getSushiswapAddressLiquidityTransactions({
-  chainId: '1',
-  address: '0xE78dC206875373B351EEF2D182025bb9a64d67B3',
-});
+interface GetChainStatusesDto {}
 ```
 
-## Aave Endpoints <img src="https://raw.githubusercontent.com/aave/aave-ui/bf9b52643fdeefc53a6ebf179efd904d86505568/public/aave.svg" width="40"/>
-
-- getAaveAssets <br>
-  <b>Description:</b> Returns a paginated list of Aave pools sorted by exchange volume.<br>
-
 ```ts
-await Moralis.Plugins.covalent.getAaveAssets();
+await Moralis.Plugins.covalent.getChainsStatuses(GetChainStatusesDto);
 ```
 
-- getAaveAddressBalance <br>
-  <b>Description:</b> Gets Aave address exchange balances.<br>
+</br>
+
+### Get Changes In Token Holders
+
+Description: Given chain id and wallet address, return a paginated list of token holders and their current/historical balances, where the token balance of the holder changes between starting block and ending block.
 
 ```ts
-await Moralis.Plugins.covalent.getAaveAddressBalance({
-  address: '0xb53c1a33016b2dc2ff3653530bff1848a515c8c5',
-});
+interface GetChangesInTokenHoldersDto {
+  chainId: number;
+  address: Address;
+  startingBlock: string;
+  endingBlock: string;
+  pageNumber?: number;
+  pageSize?: number;
+  quoteCurrency?: string;
+}
 ```
 
-## Compound Endpoints <img src="https://raw.githubusercontent.com/compound-finance/compound-components/9a9ff55e565baf434e4013d0de971557596c0613/src/public/assets/asset_COMP.svg" width="40"/>
-
-- getCompoundAssets <br>
-  <b>Description:</b> Get Compound network assets.<br>
-
 ```ts
-await Moralis.Plugins.covalent.getCompoundAssets();
+await Moralis.Plugins.covalent.getChangesInTokenHolerBetweenBlockHeights(GetChangesinTokenHoldersDto);
 ```
 
-- getCompoundAddressBalances <br>
-  <b>Description:</b> Get Compound address balances.<br>
+</br>
+
+### Get Erc20 Token Transactions For Address
+
+Description: Given chain id user address and transaction hash return all ERC20 token contract transfers along with their historical prices at the time of their transfer.
 
 ```ts
-await Moralis.Plugins.covalent.getCompoundAddressBalances({
-  address: '0xf5dce57282a584d2746faf1593d3121fcac444dc',
-});
+interface GetErc20TokenTransactionsForAddressDto {
+  chainId: number;
+  address: Address;
+  tokenAddress: Address;
+  quoteCurrency?: string;
+  pageNumber?: number;
+  pageSize?: number;
+}
 ```
 
-- getCompoundAddressActivity <br>
-  <b>Description:</b> Get Compound address activity.<br>
-
 ```ts
-await Moralis.Plugins.covalent.getCompoundAddressActivity({
-  address: '0xE78dC206875373B351EEF2D182025bb9a64d67B3',
-});
+await Moralis.Plugins.covalent.getErc20TokenTransfersForAddress(GetErc20TokenTransactionsForAddressDto);
 ```
 
-## Curve Endpoints <img src="https://image.pngaaa.com/550/5986550-middle.png" width="40"/>
+</br>
 
-- getCurveAddressBalances <br>
-  <b>Description:</b> Get Curve address balances.<br>
+### Get Historical Portfolio Value Over Time
+
+Description: Given chain id and wallet address return wallet value for the last 30 days at 24 hour interval timestamps.
 
 ```ts
-await Moralis.Plugins.covalent.getCurveAddressBalances({
-  address: '0xE78dC206875373B351EEF2D182025bb9a64d67B3',
-});
+interface GetHistoricalPortfolioValueOverTimeDto {
+  chainId: number;
+  address: Address;
+  quoteCurrency?: string;
+}
 ```
 
-## Balancer Endpoints <img src="https://avatars.githubusercontent.com/u/48451921?s=200&v=4" width="40"/>
-
-- getBalancerAddressBalances <br>
-  <b>Description:</b> Get Balancer address balances.<br>
-
 ```ts
-await Moralis.Plugins.covalent.getBalancerAddressBalances({
-  address: '0xE78dC206875373B351EEF2D182025bb9a64d67B3',
-});
+await Moralis.Plugins.covalent.getHistoricalPortfolioValueOverTime(GetHistoricalPortfolioValueOverTimeDto);
 ```
 
-## Farming stats Endpoints
+</br>
 
-- getBalancerAddressBalances <br>
-  <b>Description:</b> Get farming positions on Uniswap, Sushiswap, and Harvest.<br>
+### Get Log Events By Contract Address
+
+Description: Given chain id, and contract address, return a paginated list of decoded log events emitted by a particular smart contract.
 
 ```ts
-await Moralis.Plugins.covalent.getFarmingStats({
-  address: '0xfcade2c82f8f1f53ff6b2463c3470126d27f3f3b',
-});
+interface GetLogEventsByContractAddressDto {
+  chainId: number;
+  contractAddress: Address;
+  startingBlock: string;
+  endingBlock: string;
+  pageNumber?: number;
+  pageSize?: number;
+}
+```
+
+```ts
+await Moralis.Plugins.covalent.getLogEventsByContractAddress(GetLogEventsByContractAddressDto);
+```
+
+</br>
+
+### Get log events by topic
+
+Description: Given chain id and topic return a paginated list of decoded log events with one or more topic hashes separated by a comma.
+
+```ts
+interface GetLogEventsByTopicDto {
+  chainId: number;
+  topic: Topic;
+  endBlock: string;
+  secondaryTopic?: Topic;
+  startBlock?: string;
+  address?: Address;
+  pageNumber?: number;
+  pageSize?: number;
+}
+```
+
+```js
+await Moralis.Plugins.covalent.getTokenHoldersByTopic(GetLogEventsByTopicDto);
+```
+
+</br>
+
+### Get NFT Token IDs for contract
+
+Description: Given chain id and contract address, return a list of all token IDs for the NFT contract on the blockchain.
+
+```ts
+interface GetNFTTokenIDsForContractDto {
+  chainId: number;
+  contractAddress: Address;
+  pageNumber?: number;
+  pageSize?: number;
+}
+```
+
+```js
+await Moralis.Plugins.covalent.getNftTokenIdForContract(GetNFTTokenIDsForContractDto);
+```
+
+</br>
+
+### Get NFT transactions for contract
+
+Description: Given chain id, contract address and token id, return a list of transactions.
+
+```ts
+interface GetNFTTransactionsForContractDto {
+  chainId: number;
+  contractAddress: Address;
+  tokenId: string;
+  pageNumber?: number;
+  pageSize?: number;
+}
+```
+
+```js
+await Moralis.Plugins.covalent.getNftTransactionsForContract(GetNFTTransactionsForContractDto);
+```
+
+</br>
+
+
+### Get NFT external metadata for contract
+
+Description: Given chain id, contract address and token id, fetch and return the external metadata. Both ERC721 as well as ERC1155 standards are supported.
+
+```ts
+interface GetNFTExternalMetaForContractDto {
+  chainId: number;
+  contractAddress: Address;
+  tokenId: string;
+}
+```
+
+```js
+await Moralis.Plugins.covalent.getNftExternalMetadataForContract(GetNFTExternalMetaForContractDto);
+```
+
+</br>
+
+
+### Get token balances for address
+
+Description: Given chain id and wallet address return current token balances along with their spot prices.
+
+```ts
+interface GetTokenBalancesForAddressDto {
+  chainId: number;
+  address: Address;
+  quoteCurrency?: string;
+}
+```
+
+```js
+await Moralis.Plugins.covalent.getTokenBalancesForAddress(GetTokenBalancesForAddressDto);
+```
+
+</br>
+
+### Get token holders as of any block height
+
+Description: Given chain id and wallet address, return a paginated list of token holders. If block height is omitted, the latest block is used.
+
+```ts
+interface GetBlockTokenHoldersDto {
+  chainId: number;
+  contractAddress: Address;
+  blockHeight: string;
+  pageNumber?: number;
+  pageSize?: number;
+  quoteCurrency?: string;
+}
+```
+
+```js
+await Moralis.Plugins.covalent.getBlockTokenHolders(GetBlockTokenHoldersDto);
+```
+
+</br>
+
+### Get transactions
+
+Description: Given chain id and transaction hash return return the transaction data with their decoded event logs.
+
+```ts
+interface GetTransactionDto {
+  chainId: number;
+  transactionHash: TransactionHash;
+}
+```
+
+```js
+await Moralis.Plugins.covalent.getTransaction(GetTransactionDto);
+```
+
+</br>
+
+### Get transactions for address
+
+Description: Given chain id and wallet address return all transactions along with their decoded log events. This endpoint does a deep-crawl of the blockchain to retrieve all kinds of transactions that references the addressincluding indexed topics within the event logs.
+
+```ts
+interface GetTransactionsForAddressDto {
+  chainId: number;
+  address: Address;
+  quoteCurrency?: string;
+  pageNumber?: number;
+  pageSize?: number;
+}
+```
+
+```js
+await Moralis.Plugins.covalent.getTransactionsForAddress(GetTransactionsForAddressDto);
 ```
