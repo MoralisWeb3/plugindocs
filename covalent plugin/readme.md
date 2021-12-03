@@ -38,7 +38,7 @@ interface GetBlockDto {
 }
 ```
 
-```ts
+```js
 await Moralis.Plugins.covalent.getBlock(GetBlockDto);
 ```
 
@@ -56,7 +56,7 @@ interface GetAllContractMetaDto {
 }
 ```
 
-```ts
+```js
 await Moralis.Plugins.covalent.getAllContractMetadata(GetAllContractMetaDto);
 ```
 
@@ -77,7 +77,7 @@ interface GetBlockHeightsDto {
 }
 ```
 
-```ts
+```js
 await Moralis.Plugins.covalent.getBlockHeights(GetBlockHeightsDto);
 ```
 
@@ -91,7 +91,7 @@ Description: Returns a list of all chains.
 interface GetChainsDto {}
 ```
 
-```ts
+```js
 await Moralis.Plugins.covalent.getChains(GetChainsDto);
 ```
 
@@ -105,7 +105,7 @@ Description: Returns a list of all chain statuses.
 interface GetChainStatusesDto {}
 ```
 
-```ts
+```js
 await Moralis.Plugins.covalent.getChainsStatuses(GetChainStatusesDto);
 ```
 
@@ -127,7 +127,7 @@ interface GetChangesInTokenHoldersDto {
 }
 ```
 
-```ts
+```js
 await Moralis.Plugins.covalent.getChangesInTokenHolerBetweenBlockHeights(GetChangesinTokenHoldersDto);
 ```
 
@@ -148,7 +148,7 @@ interface GetErc20TokenTransactionsForAddressDto {
 }
 ```
 
-```ts
+```js
 await Moralis.Plugins.covalent.getErc20TokenTransfersForAddress(GetErc20TokenTransactionsForAddressDto);
 ```
 
@@ -166,7 +166,7 @@ interface GetHistoricalPortfolioValueOverTimeDto {
 }
 ```
 
-```ts
+```js
 await Moralis.Plugins.covalent.getHistoricalPortfolioValueOverTime(GetHistoricalPortfolioValueOverTimeDto);
 ```
 
@@ -187,7 +187,7 @@ interface GetLogEventsByContractAddressDto {
 }
 ```
 
-```ts
+```js
 await Moralis.Plugins.covalent.getLogEventsByContractAddress(GetLogEventsByContractAddressDto);
 ```
 
