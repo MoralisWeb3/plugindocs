@@ -500,7 +500,7 @@ await Moralis.Plugins.covalent.getPancakeswapV2PoolsByAddress(GetPancakeswapV2Po
 
 </br>
 
-### Get Pancakeswap Address Balance
+### Get Pancakeswap V2 Address Balance
 
 Description: Given a wallet address, return a list of Pancake V2 exchange balances.
 
