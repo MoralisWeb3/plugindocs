@@ -756,7 +756,7 @@ await Moralis.Plugins.covalent.getCurveAddressBalances(GetCurveAddressBalancesDt
 ## XYK Endpoints <img src="https://www.covalenthq.com/static/images/class-b/header/xy=k.svg" width="40"/>
 
 xy=k is a generalized Uniswap-like endpoints for exchanges on various chains.
-Supported chains: `'uniswap_v2', 'sushiswap', 'pancakeswap_v2', 'quickswap', 'pangolin', 'spiritswap', 'spookyswap'`
+Supported chains: `'uniswap_v2', 'sushiswap', 'pancakeswap_v2', 'quickswap', 'pangolin', 'spiritswap', 'spookyswap', 'traderjoe'`
 
 </br>
 
