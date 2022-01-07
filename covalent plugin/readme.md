@@ -299,7 +299,7 @@ Description: Given chain id and wallet address, return a paginated list of token
 interface GetBlockTokenHoldersDto {
   chainId: number;
   contractAddress: Address;
-  blockHeight: string;
+  blockHeight?: string;
   pageNumber?: number;
   pageSize?: number;
   quoteCurrency?: string;
