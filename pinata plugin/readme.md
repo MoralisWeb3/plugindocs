@@ -1,6 +1,6 @@
 # Moralis Pinata IPFS Plugin
 
-This plugin enables interaction with the Pinaata IPFS API (https://www.pinata.cloud/). <br>
+This plugin enables interaction with the Pinata IPFS API (https://www.pinata.cloud/). <br>
 
 ## Get started
 
