@@ -23,7 +23,7 @@ interface PinJSONDto {
 ```
 
 ```js
-await Moralis.Plugins.ipfs.pinJson(PinJSONDto);
+await Moralis.Plugins.pinata.pinJson(PinJSONDto);
 ```
 
 </br>
@@ -41,7 +41,7 @@ interface PinFileDto {
 ```
 
 ```js
-await Moralis.Plugins.ipfs.pinFile(PinFileDto);
+await Moralis.Plugins.pinata.pinFile(PinFileDto);
 ```
 
 </br>
@@ -53,7 +53,7 @@ interface PinFolderDto {
 ```
 
 ```js
-await Moralis.Plugins.ipfs.pinFolder(PinFolderDto);
+await Moralis.Plugins.pinata.pinFolder(PinFolderDto);
 ```
 
 </br>
@@ -63,5 +63,5 @@ await Moralis.Plugins.ipfs.pinFolder(PinFolderDto);
 Description: Retrieve pin records for your Pinata account.
 
 ```js
-await Moralis.Plugins.ipfs.pinList();
+await Moralis.Plugins.pinata.pinList();
 ```
