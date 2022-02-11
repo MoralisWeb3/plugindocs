@@ -110,4 +110,4 @@ async function swap() {
 
 ## Transaction fee
 
-There is a 1% transaction fee on each swap.
+There is a 1% transaction fee on each swap. This fee is charged by Moralis, not 1inch.
